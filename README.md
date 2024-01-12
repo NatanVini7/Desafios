@@ -1,2 +1,2 @@
 # Desafios
-Desafios em HTML e CSS
+Desafios em HTML, CSS e JS
