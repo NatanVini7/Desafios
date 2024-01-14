@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    button {
+      color: white;
+      background-color: #17171A;
+      padding: 15px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: Arial;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="
+    playGame('heads');
+  ">heads</button>
+
+  <button onclick="
+    playGame('tails');
+  ">tails</button>
+  <script>
+    //1- Clique com o botão direito na tela
+    //2- Vá em inspecionar
+    //3- Vá em console e aproveite
+
+    const result = JSON.parse(localStorage.getItem('result')) || {
+      wins: 0,
+      losses: 0
+    }
+
+    function pickComputerMove() {
+      const randomNumber = Math.random();
+      let computerMove = '';
+
+      if(randomNumber <= 0.5)
+        computerMove = 'heads';
+      else
+        computerMove = 'tails';
+      return computerMove;
+    }
+
+    function playGame(guess) {
+      const computerMove = pickComputerMove();
+      let score = '';
+
+      if(computerMove === guess){
+        score = 'You win!'
+        console.log('Você ganhou c:');
+      }else{
+        score = 'You lose!'
+        console.log('Você perdeu :c');
+      }
+
+      if(score === 'You win!')
+        result.wins++;
+      else
+        result.losses++;
+
+      console.log(result);
+      localStorage.setItem('result', JSON.stringify(result));
+    } 
+  </script>
+</body>
+</html>
