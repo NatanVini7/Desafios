@@ -16,6 +16,6 @@
 
 # -Pedra, Papel, Tesoura
 
-✔ Desafio do blog está quase concluído. 
+✔ Desafio do ainda em construção.
 
 🏗 TODO: Features com JavaScript
