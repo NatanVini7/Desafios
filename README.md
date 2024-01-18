@@ -14,8 +14,16 @@
 
 #
 
+# -Calculadora
+
+✔ Desafio da calculadora ainda em construção. 
+
+🏗 TODO: Features com JavaScript
+
+#
+
 # -Pedra, Papel, Tesoura
 
-✔ Desafio do ainda em construção.
+✔ Desafio do jokenpô ainda em construção.
 
 🏗 TODO: Features com JavaScript
