@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>Calculator</title>
+</head>
+<body>
+  <p>
+    <button onclick="
+      calculate('1');
+    ">1</button>
+
+    <button onclick="
+      calculate('2');
+    ">2</button>
+    
+    <button onclick="
+      calculate('3');
+    ">3</button>
+
+    <button class="operation" onclick="
+      calculate('+');
+    ">+</button>
+  </p>
+
+  <p>
+    <button onclick="
+      calculate('4');
+    ">4</button>
+
+    <button onclick="
+      calculate('5');
+    ">5</button>
+    
+    <button onclick="
+      calculate('6');
+    ">6</button>
+
+    <button class="operation" onclick="
+      calculate('-');
+    ">-</button>
+  </p>
+
+  <p>
+    <button onclick="
+      calculate('7');
+    ">7</button>
+
+    <button onclick="
+      calculate('8');
+    ">8</button>
+    
+    <button onclick="
+      calculate('9');
+    ">9</button>
+
+    <button class="operation" onclick="
+      calculate('*');
+    ">*</button>
+  </p>
+
+  <p>
+    <button onclick="
+      calculate('0');
+    ">0</button>
+
+    <button onclick="
+      calculate('.');
+    ">.</button>
+
+    <button onclick="
+      calculator = eval(calculator);
+      showResult();
+
+      localStorage.setItem('calculator', JSON.stringify(calculator));
+    ">=</button>
+
+    <button class="operation" onclick="
+      calculate('/');
+    ">/</button>
+  </p>
+
+  <p>
+    <button class="clear-button" onclick="
+      calculator = '';
+      document.querySelector('.js-result').innerHTML = ``;
+    ">Clear</button>
+    
+    <button style="font-size: 16px;"
+      onclick="
+        showHistory()
+    ">History</button>
+  </p>
+
+  <p class="js-result"></p>
+
+  <script>
+    let calculation = '';
+    let calculator = '';
+
+    function calculate(calculation) {
+      calculator += calculation;
+      showResult();
+    }
+
+    function showResult() {
+      document.querySelector('.js-result').innerHTML = `${calculator}`;
+    }
+
+    const result = JSON.parse(localStorage.getItem('calculator')) || {
+      calculator: 0
+    }
+
+    function showHistory() {
+      document.querySelector('.js-result').innerHTML = `${result}`;
+    }
+    
+    showHistory();
+  </script>
+</body>
+</html>
